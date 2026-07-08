@@ -205,6 +205,10 @@ Total ticket revenue
 
 ---
 
+# SQL files
+
+Each SQL file should contain only one concept.
+
 # Submission Checklist
 
 ✔ Database created
