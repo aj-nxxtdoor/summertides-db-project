@@ -1,6 +1,6 @@
 PRAGMA foreign_keys = ON;
 
-CREATE TABLE attendees (
+CREATE TABLE IF NOT EXISTS attendees (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     full_name TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
@@ -10,7 +10,7 @@ CREATE TABLE attendees (
     registration_date TEXT NOT NULL DEFAULT CURRENT_DATE
 );
 
-CREATE TABLE tickets (
+CREATE TABLE IF NOT EXISTS tickets (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     ticket_type TEXT NOT NULL CHECK (ticket_type IN ('General', 'VIP', 'Student', 'Weekend')),
     price REAL NOT NULL CHECK (price >= 0),
@@ -20,7 +20,7 @@ CREATE TABLE tickets (
     FOREIGN KEY (attendee_id) REFERENCES attendees(id) ON DELETE CASCADE
 );
 
-CREATE TABLE artists (
+CREATE TABLE IF NOT EXISTS artists (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
     genre TEXT NOT NULL,
@@ -28,14 +28,14 @@ CREATE TABLE artists (
     contact_email TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE stages (
+CREATE TABLE IF NOT EXISTS stages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     stage_name TEXT NOT NULL UNIQUE,
     location TEXT NOT NULL,
     capacity INTEGER NOT NULL CHECK (capacity > 0)
 );
 
-CREATE TABLE performances (
+CREATE TABLE IF NOT EXISTS performances (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     performance_title TEXT NOT NULL,
     artist_id INTEGER NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE performances (
     CHECK (start_time < end_time)
 );
 
-CREATE TABLE vendors (
+CREATE TABLE IF NOT EXISTS vendors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     vendor_name TEXT NOT NULL UNIQUE,
     category TEXT NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE vendors (
     contact_email TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE sales (
+CREATE TABLE IF NOT EXISTS sales (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     sale_date TEXT NOT NULL DEFAULT CURRENT_DATE,
     amount REAL NOT NULL CHECK (amount > 0),
@@ -68,14 +68,14 @@ CREATE TABLE sales (
     FOREIGN KEY (attendee_id) REFERENCES attendees(id) ON DELETE CASCADE
 );
 
-CREATE TABLE sponsors (
+CREATE TABLE IF NOT EXISTS sponsors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     sponsor_name TEXT NOT NULL UNIQUE,
     sector TEXT NOT NULL,
     contact_email TEXT NOT NULL UNIQUE
 );
 
-CREATE TABLE stage_sponsors (
+CREATE TABLE IF NOT EXISTS stage_sponsors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     stage_id INTEGER NOT NULL,
     sponsor_id INTEGER NOT NULL,
