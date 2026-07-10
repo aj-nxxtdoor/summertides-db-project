@@ -1,3 +1,5 @@
+-- JOIN examples combining attendees, tickets, performances, vendors, and sponsors
+
 SELECT a.full_name, a.email, t.ticket_type, t.price, t.festival_day
 FROM attendees a
 JOIN tickets t ON a.id = t.attendee_id

@@ -1,3 +1,5 @@
+-- Views to simplify common dataset patterns and result sets
+
 DROP VIEW IF EXISTS attendee_ticket_summary;
 CREATE VIEW attendee_ticket_summary AS
 SELECT a.id AS attendee_id,

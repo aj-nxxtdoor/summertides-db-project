@@ -1,3 +1,5 @@
+-- Bonus queries leveraging window functions and subqueries
+
 SELECT vendor_name, total_sales
 FROM (
     SELECT v.vendor_name,

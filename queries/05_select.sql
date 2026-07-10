@@ -1,3 +1,5 @@
+-- Basic SELECT queries for the SummerTides dataset
+
 SELECT * FROM attendees;
 
 SELECT * FROM artists;

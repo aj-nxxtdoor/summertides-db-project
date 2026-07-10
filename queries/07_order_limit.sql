@@ -1,3 +1,5 @@
+-- ORDER BY and LIMIT examples for sorting and result capping
+
 SELECT * FROM attendees ORDER BY full_name ASC;
 
 SELECT * FROM artists ORDER BY genre ASC, name ASC;

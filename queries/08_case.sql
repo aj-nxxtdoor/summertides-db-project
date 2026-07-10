@@ -1,3 +1,5 @@
+-- CASE expressions for categorizing ticket and participant data
+
 SELECT ticket_type, price,
        CASE
            WHEN price < 3000 THEN 'Budget'
