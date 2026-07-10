@@ -1,3 +1,4 @@
+PRAGMA foreign_keys = ON;
 
 INSERT INTO attendees (full_name, email, phone, city, age, registration_date) VALUES
 ('Asha Njeri', 'asha.njeri@summertides.test', '+254700111001', 'Nairobi', 24, '2026-05-10'),
